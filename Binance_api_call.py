@@ -32,13 +32,13 @@ def db_save(pair_name,price,pricechangepercent,pricechangeabsolut,volume):
     print('Connected!\n')
     # Вставляем данные в таблицу
     cursor.execute("""INSERT INTO binance_api_response(pair_name, price, pricechangepercent, pricechangeabsolut, volume)
-                          VALUES (?, ?, ?, ?, ?)""", (pair_name, price, pricechangepercent, pricechangeabsolut, volume)
+                          VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')""".format(pair_name, price, pricechangepercent, pricechangeabsolut, volume)
                    )
     # Сохраняем изменения
     conn.commit()
 
 
-db_save('1',float('0.2'),float('0.213'),float('1.321'),float('1.312321'))
+db_save(parse_price_json()[0]['symbol'],float('0.2'),float('0.213'),float('1.321'),float('1.312321'))
 
 
 # print(parse_price_json()[0]['symbol'])
