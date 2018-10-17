@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92063612-2cf5-4e23-8823-e231b35f8410" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa5e96d-576d-4286-96b2-80a145ff5748.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0aa5e96d-576d-4286-96b2-80a145ff5748.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa5e96d-576d-4286-96b2-80a145ff5748/storage_v2/_src_/database/binance_bot_db.fyd7nA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0aa5e96d-576d-4286-96b2-80a145ff5748/storage_v2/_src_/database/binance_bot_db.fyd7nA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binance_api_call.py" beforeDir="false" afterPath="$PROJECT_DIR$/Binance_api_call.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/psycopg2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/psycopg2/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/psycopg2/_psycopg.cpython-36m-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/psycopg2/_psycopg.cpython-36m-x86_64-linux-gnu.so" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +16,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TG_bot$tg_bot.coverage" NAME="tg_bot Coverage Results" MODIFIED="1539358403400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/TG_bot$Binance_api_call.coverage" NAME="Binance_api_call Coverage Results" MODIFIED="1539783663414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TG_bot$Binance_api_call.coverage" NAME="Binance_api_call Coverage Results" MODIFIED="1539789843466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -30,52 +32,42 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_bot_db: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="fex_dev: database" type="6d9b600a:PostgresImplModel$Database" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_bot_db: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="fex_dev: database" type="6d9b600a:PostgresImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_bot_db: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_bot_db: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="fex_dev: database" type="6d9b600a:PostgresImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="binance_bot_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="Fex_dev" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_bot_db: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="fex_dev: database" type="6d9b600a:PostgresImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="binance_api_response: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
       </path>
     </expand>
     <select />
@@ -90,51 +82,104 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="admin" value="1" />
           <entry key="binance_api_response" value="1" />
           <entry key="py" value="8" />
-          <entry key="sql" value="4" />
+          <entry key="sql" value="5" />
+          <entry key="user" value="1" />
+          <entry key="user_auth_log" value="1" />
+          <entry key="user_social" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="1" />
+          <entry key="Database Element" value="5" />
           <entry key="Python" value="8" />
           <entry key="SQL" value="2" />
-          <entry key="Scratch" value="2" />
+          <entry key="Scratch" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2033" />
-          <entry key="sql" value="247" />
-          <entry key="txt" value="16" />
+          <entry key="Python Console" value="5" />
+          <entry key="cell" value="1" />
+          <entry key="py" value="2471" />
+          <entry key="sql" value="282" />
+          <entry key="txt" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="2032" />
-          <entry key="SQL" value="5" />
-          <entry key="Scratch" value="243" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="Python" value="2475" />
+          <entry key="SQL" value="40" />
+          <entry key="Scratch" value="244" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Binance_api_call.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
+            <state relative-caret-position="621">
+              <caret line="135" column="24" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1539783575756" expanded="true" signature="355:4352" ph="..." />
-                <marker date="1539783575756" expanded="true" signature="730:1362" ph="..." />
-                <marker date="1539783575756" expanded="true" signature="2742:2743" ph="..." />
-                <marker date="1539783575756" expanded="true" signature="2893:3486" ph="..." />
-                <marker date="1539783575756" expanded="true" signature="3507:4352" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="355:4527" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="730:1362" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="2925:2926" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="3076:3671" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="3693:4527" ph="..." />
+                <marker date="1539788430510" expanded="true" signature="4574:4690" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/eb40fba4-db77-450a-b4ff-5e6ae52a0e31/console.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/admin">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user_auth_log">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" text="email='maxgreben@gmail.com'">
+                <filter text="email='maxgreben@gmail.com'" />
+                <filter text="phone='+380932454529'" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user_social">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" text="user_id ='343862'">
+                <filter text="user_id ='343862'" />
+              </filtering>
             </state>
           </provider>
         </entry>
@@ -316,7 +361,7 @@
       <window_info content_ui="combo" id="Project" order="1" weight="0.1765357" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32972974" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Database Console" order="4" weight="0.32972974" />
@@ -324,12 +369,12 @@
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.22918919" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.22918919" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32982844" />
+      <window_info active="true" anchor="right" id="Database" order="0" visible="true" weight="0.32982844" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="SciView" order="2" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
@@ -414,16 +459,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Binance_api_call.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
+        <state relative-caret-position="621">
+          <caret line="135" column="24" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1539783575756" expanded="true" signature="355:4352" ph="..." />
-            <marker date="1539783575756" expanded="true" signature="730:1362" ph="..." />
-            <marker date="1539783575756" expanded="true" signature="2742:2743" ph="..." />
-            <marker date="1539783575756" expanded="true" signature="2893:3486" ph="..." />
-            <marker date="1539783575756" expanded="true" signature="3507:4352" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="355:4527" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="730:1362" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="2925:2926" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="3076:3671" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="3693:4527" ph="..." />
+            <marker date="1539788430510" expanded="true" signature="4574:4690" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/eb40fba4-db77-450a-b4ff-5e6ae52a0e31/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/admin">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" text="email='maxgreben@gmail.com'">
+            <filter text="email='maxgreben@gmail.com'" />
+            <filter text="phone='+380932454529'" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user_social">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" text="user_id ='343862'">
+            <filter text="user_id ='343862'" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://eb40fba4-db77-450a-b4ff-5e6ae52a0e31/database/fex_dev/schema/public/table/user_auth_log">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

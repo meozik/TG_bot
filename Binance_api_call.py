@@ -62,20 +62,24 @@ def db_update(price, pricechangepercent, pricechangeabsolut, volume):
 def get_old_volume(i):
     # Коннектимся к локальной базе данных
     conn_string = "host='localhost' dbname='binance_bot_db' user='postgres' password='meozds9205'"
-    print("Connecting to database\n	->%s" % (conn_string))
+    # print("Connecting to database\n	->%s" % (conn_string))
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
     print('Connected!\n')
     # Выбираем старые данные по айдишнику валюты
-    num = i+1
     cursor.execute(
-        f'SELECT volume FROM binance_api_response WHERE id= {num}')
+        f'SELECT pair_name, volume FROM binance_api_response WHERE id= {i+1}')
     # Парсим данные в переменную
-    result = cursor.fetchall()[i][0]
+    result = cursor.fetchall()
+    print(result)
+    resultVolume = result[0][1]
+    resultPairname = result[0][0]
+    print('resultVolume', resultVolume)
+    print('resultPairname', resultPairname)
     cursor.close()
     del cursor
     conn.close()
-    return result
+    return resultVolume, resultPairname
 
 def get_price(i):
     avgPrice = (float(get_binance_json()[i]['bidPrice'])+float(get_binance_json()[i]['askPrice']))/2
@@ -84,7 +88,7 @@ def get_price(i):
 def get_old_price(i):
     # Коннектимся к локальной базе данных
     conn_string = "host='localhost' dbname='binance_bot_db' user='postgres' password='meozds9205'"
-    print("Connecting to database\n	->%s" % (conn_string))
+    # print("Connecting to database\n	->%s" % (conn_string))
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
     print('Connected!\n')
@@ -98,38 +102,40 @@ def get_old_price(i):
     conn.close()
     return result
 
-def compare_volume():
+def compare_volume(i):
     # забираем данные предыдущего значения объема торгов
-    old = float(get_old_volume(0))
+    old, pairname = get_old_volume(i)
     print('Старое значение объема', old)
     # Забираем данные нового объема торгов
-    new = float(get_binance_json()[0]['quoteVolume'])
+    new = float(get_binance_json()[i]['quoteVolume'])
     print('Новое значение объема', new)
+    # Сравниваем данные
+    diff = ((new - float(old))/float(old))*100
+    if  diff>= 0:
+        sendTelegramNotification(pairname, diff)
+    print('Разница объема в процентах',diff)
+
+def compare_price(i):
+    # забираем данные предыдущего значения объема торгов
+    old = float(get_old_price(i))
+    print('Старое значение цены', old)
+    # Забираем данные нового объема торгов
+    new = get_price(i)
+    print('Новое значение цены', new)
     # Сравниваем данные
     diff = ((new - old)/old)*100
     if  diff>= 10:
         print('Алярм!!!!')
-    print('Разница в процентах',diff)
+    print('Разница цены в процентах',diff)
 
-def compare_price():
-    # забираем данные предыдущего значения объема торгов
-    old = float(get_old_volume(0))
-    print('Старое значение объема', old)
-    # Забираем данные нового объема торгов
-    new = float(get_binance_json()[0]['quoteVolume'])
-    print('Новое значение объема', new)
-    # Сравниваем данные
-    diff = ((new - old)/old)*100
-    if  diff>= 10:
-        print('Алярм!!!!')
-    print('Разница в процентах',diff)
+def sendTelegramNotification(pair_name, diff):
+    print('Тут будет выслано сообщение в телегу при срабатывании условия по росту процента объема торгов', diff)
 
 
-# compare_volume()
-# print(get_binance_json()[0])
-print(type(get_old_volume(0)))
+print(compare_volume(0))
+# print(compare_price(0))
 
-
+# print(get_old_volume(0))
 
 
 
@@ -140,4 +146,4 @@ print(type(get_old_volume(0)))
 #     #         float(parse_price_json()[0]['priceChange']), float(parse_price_json()[0]['quoteVolume']))
 #     db_update(get_price(i), float(get_binance_json()[i]['priceChangePercent']),
 #               float(get_binance_json()[i]['priceChange']), float(get_binance_json()[i]['quoteVolume']))
-#     time.sleep(1)
+#     time.sleep(3)

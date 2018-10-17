@@ -10,5 +10,14 @@
       <user-name>meoz</user-name>
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
+    <data-source name="Fex_dev" uuid="eb40fba4-db77-450a-b4ff-5e6ae52a0e31">
+      <database-info product="PostgreSQL" version="10.4 (Ubuntu 10.4-2.pgdg18.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" family="POSTGRES" exact-version="10.4">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>fex</user-name>
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
   </component>
 </project>

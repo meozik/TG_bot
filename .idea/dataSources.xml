@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/binance_bot_db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Fex_dev" uuid="eb40fba4-db77-450a-b4ff-5e6ae52a0e31">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://46.101.126.5:5432/fex_dev</jdbc-url>
+    </data-source>
   </component>
 </project>
