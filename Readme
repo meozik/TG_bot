@@ -1,0 +1,28 @@
+Это дока по созданию нужной таблицы в бд
+
+-----------------------Создать базу в postgresql-----------------------------------
+1. Создать базу
+2. password = meozds9205
+3. Host = localhost
+4. dbname='binance_bot_db'
+5. user='postgres'
+
+-----------------------Создание таблицы в базе--------------------------------------
+
+CREATE TABLE binance_api_response2 (
+  id integer PRIMARY KEY,
+  pairName varchar(80),
+  price double precision,
+  priceChangePercent double precision,
+  priceChangeAbsolut double precision,
+  volume double precision);
+
+
+-------------------- Скрипт для записи джейсонины в базу-----------------------------
+ token_data = get_binance_json()
+    length= len(token_data)
+    for i in range (length):
+        price = get_price(i, token_data)
+        single_token_data = token_data[i]
+        db_save(i, single_token_data['symbol'], price, single_token_data['priceChangePercent'],
+                single_token_data['priceChange'], single_token_data['quoteVolume'])
