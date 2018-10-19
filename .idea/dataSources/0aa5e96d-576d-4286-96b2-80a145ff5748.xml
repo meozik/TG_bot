@@ -91,8 +91,8 @@
     <schema id="20" parent="3" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-10-18.17:56:55.119</IntrospectionTimestamp>
-      <IntrospectionStateNumber>6148</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-10-19.12:29:20.751</IntrospectionTimestamp>
+      <IntrospectionStateNumber>9091</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -138,118 +138,108 @@
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="27" parent="20" name="binance_api_response_id_seq">
-      <ObjectId>24809</ObjectId>
-      <StateNumber>5807</StateNumber>
-      <SequenceIdentity>1..2147483647</SequenceIdentity>
-      <BelongsToColumn>1</BelongsToColumn>
-      <CacheSize>1</CacheSize>
-      <DataType>integer</DataType>
-    </sequence>
-    <table id="28" parent="20" name="binance_api_response">
-      <ObjectId>24800</ObjectId>
-      <StateNumber>5807</StateNumber>
-    </table>
-    <table id="29" parent="20" name="binance_api_response2">
+    <table id="27" parent="20" name="binance_api_response2">
       <ObjectId>24818</ObjectId>
       <StateNumber>6148</StateNumber>
     </table>
-    <column id="30" parent="28" name="pair_name">
-      <Position>1</Position>
-      <DataType>varchar(80)|0s</DataType>
-      <StateNumber>5769</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="31" parent="28" name="price">
-      <Position>2</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5769</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="32" parent="28" name="pricechangepercent">
-      <Position>3</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5769</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="33" parent="28" name="pricechangeabsolut">
-      <Position>4</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5769</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="34" parent="28" name="volume">
-      <Position>5</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5769</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="35" parent="28" name="id">
-      <Position>6</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5807</StateNumber>
-      <DefaultExpression>nextval(&apos;binance_api_response_id_seq&apos;::regclass)</DefaultExpression>
-      <TypeId>23</TypeId>
-      <SequenceName>binance_api_response_id_seq</SequenceName>
-    </column>
-    <index id="36" parent="28" name="binance_api_response_pkey">
-      <ObjectId>24812</ObjectId>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="37" parent="28" name="binance_api_response_pkey">
-      <ObjectId>24813</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>binance_api_response_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <column id="38" parent="29" name="id">
+    <table id="28" parent="20" name="btc_table">
+      <ObjectId>24823</ObjectId>
+      <StateNumber>9091</StateNumber>
+    </table>
+    <column id="29" parent="27" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>6148</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="39" parent="29" name="pairname">
+    <column id="30" parent="27" name="pairname">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>6148</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="40" parent="29" name="price">
+    <column id="31" parent="27" name="price">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>6148</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="41" parent="29" name="pricechangepercent">
+    <column id="32" parent="27" name="pricechangepercent">
       <Position>4</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>6148</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="42" parent="29" name="pricechangeabsolut">
+    <column id="33" parent="27" name="pricechangeabsolut">
       <Position>5</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>6148</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="43" parent="29" name="volume">
+    <column id="34" parent="27" name="volume">
       <Position>6</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>6148</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <index id="44" parent="29" name="binance_api_response2_pkey">
+    <index id="35" parent="27" name="binance_api_response2_pkey">
       <ObjectId>24821</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="45" parent="29" name="binance_api_response2_pkey">
+    <key id="36" parent="27" name="binance_api_response2_pkey">
       <ObjectId>24822</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>binance_api_response2_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>9091</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="38" parent="28" name="pairname">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>9091</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="39" parent="28" name="price">
+      <Position>3</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>9091</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="40" parent="28" name="pricechangepercent">
+      <Position>4</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>9091</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="41" parent="28" name="pricechangeabsolut">
+      <Position>5</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>9091</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="42" parent="28" name="volume">
+      <Position>6</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>9091</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="43" parent="28" name="btc_table_pkey">
+      <ObjectId>24826</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="28" name="btc_table_pkey">
+      <ObjectId>24827</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>btc_table_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
   </database-model>

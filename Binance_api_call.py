@@ -11,7 +11,7 @@ def get_data():
     r = requests.get(url + '/api/v1/ticker/24hr')
     print(r.status_code)
     while r.status_code == 200:
-        print('Function get_data, ', type(r))
+        # print('Function get_data, ', type(r))
         return r
     else:
         time.sleep(30)
@@ -21,7 +21,7 @@ def get_data():
 # Преобразовываем данные с бэка вjson
 def get_binance_json():
     x = get_data()
-    print('Function get_binance json, ',type(x))
+    # print('Function get_binance json, ',type(x))
     data_json = x.json()
     return data_json
 
@@ -64,12 +64,12 @@ def db_update(price, pricechangepercent, pricechangeabsolut, volume):
     # print("Connecting to database\n	->%s" % (conn_string))
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
-    print('db_update connected!\n')
+    # print('db_update connected!\n')
     cursor.execute(
         f"""UPDATE binance_api_response2 SET price = {price}, pricechangepercent = {pricechangepercent}, pricechangeabsolut = {pricechangeabsolut}, volume = {volume} where id=1""")
     # Сохраняем изменения
     conn.commit()
-    print("Запись произведена успешно!")
+    # print("Запись произведена успешно!")
     cursor.close()
     del cursor
     conn.close()
@@ -87,11 +87,8 @@ def get_old_volume(i):
         f'SELECT pairname, volume FROM binance_api_response2 WHERE id= {i}')
     # Парсим данные в переменную
     result = cursor.fetchall()
-    print(result)
-    index = int(i)
-    resultVolume, resultPairname = result[index][1], result[index][0]
-    # print('resultVolume', resultVolume)
-    # print('resultPairname', resultPairname)
+    # print(result)
+    resultVolume, resultPairname = result[0][1], result[0][0]
     cursor.close()
     del cursor
     conn.close()
@@ -122,22 +119,23 @@ def get_old_price(i):
 
 
 # Сравнение значений предыдущего объема и текущего
-def compare_volume(i):
+def compare_volume(i, quoteVolume, priceDiff):
     # забираем данные предыдущего значения объема торгов
     old, pairname = get_old_volume(i)
-    print('Старое значение объема', old)
+    print('Старое значение объема для', pairname, old)
     # Забираем данные нового объема торгов
-    new = float(get_binance_json()[i]['quoteVolume'])
-    print('Новое значение объема', new)
+    new = quoteVolume
+    print('Новое значение объема для ', pairname, new)
     # Сравниваем данные
     diff = ((new - float(old))/float(old))*100
-    if  diff<= 0:
+    if  diff>= 10:
         sendTelegramNotification(pairname, diff)
     print('Разница объема в процентах',diff)
+    print('Разница в цене в процентах', priceDiff)
 
 
 # Сравнение значений предыдущей цены и текущей
-def compare_price(i):
+def compare_price(i, price):
     # забираем данные предыдущего значения объема торгов
     old = float(get_old_price(i))
     print('Старое значение цены', old)
@@ -163,15 +161,32 @@ def sendTelegramNotification(pair_name, diff):
     #     db_save(i, single_token_data['symbol'], price, single_token_data['priceChangePercent'],
     #             single_token_data['priceChange'], single_token_data['quoteVolume'])
 
+# --------------------------------------Скрипт для выбора только BTC пар -------------------------------------------
+# btc_List = []
+#     for i in range(len(token_data)):
+#         str1 = str(token_data[i]['symbol'])
+#         if str1.startswith('BTC') == True or str1.endswith('BTC') == True:
+#             print(str1)
+#             btc_List.append(token_data[i])
+#     for item in btc_List:
+#         print(item)
+
+
+
+
 if __name__ == '__main__':
     token_data = get_binance_json()
-    length = len(token_data)-1
-    while True:
-        for i in range (length):
-            single_token_data = token_data[i]
-            price = get_price(i, token_data)
-            compare_volume(i)
-            db_update(price, single_token_data['priceChangePercent'],
-                  single_token_data['priceChange'], single_token_data['quoteVolume'])
-            time.sleep(1)
-        time.sleep(15)
+    print(token_data)
+    # length = len(token_data)-1
+    # while True:
+    #     for i in range (length):
+    #         single_token_data = token_data[i]
+    #         price = get_price(i, token_data)
+    #         volume = float(single_token_data['quoteVolume'])
+    #         priceDiff = float(single_token_data['priceChangePercent'])
+    #         compare_volume(i, volume, priceDiff)
+    #         # db_update(price, single_token_data['priceChangePercent'],
+    #         #       single_token_data['priceChange'], single_token_data['quoteVolume'])
+    #         time.sleep(1)
+    #         print('\n\n---------------------------------------------------------------------------')
+    #     time.sleep(15)

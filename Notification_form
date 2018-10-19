@@ -1,3 +1,0 @@
-from Binance_api_call import *
-
-print(parse_price_json())
