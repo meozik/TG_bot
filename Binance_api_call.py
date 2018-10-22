@@ -120,17 +120,17 @@ def get_old_price(i):
 
 
 # Сравнение значений предыдущего объема и текущего
-def compare_volume(i, quoteVolume, priceDiff):
+def compare_volume(i, quoteVolume, priceDiff, tokenList):
     # забираем данные предыдущего значения объема торгов
-    old, pairname = get_old_volume(i)
-    print('Старое значение объема для', pairname, old)
+    old, pairName = get_old_volume(i)
+    print('Старое значение объема для', pairName, old)
     # Забираем данные нового объема торгов
     new = quoteVolume
-    print('Новое значение объема для ', pairname, new)
+    print('Новое значение объема для ', pairName, new)
     # Сравниваем данные
-    diff = ((new - float(old))/float(old))*100
-    if  diff>= 50:
-        sendTelegramNotification(pairname, diff,priceDiff)
+    diffVolume = ((new - float(old))/float(old))*100
+    if  diffVolume>= 50:
+        format_message(pairName, diffVolume,priceDiff, tokenList)
     # print('Разница объема в процентах',diff)
     # print('Разница в цене в процентах', priceDiff)
 
@@ -149,12 +149,16 @@ def compare_price(i, price):
         print('Алярм!!!!')
     print('Разница цены в процентах',diff)
 
+# Формируем список для дальнейшей отправки одним сообщением в телеграм
+def format_message(pair_name, diffVolume, diffPrice, tokenList):
+    tokenText = "Торговая пара: "+ pair_name + "\n "+"Разница в процентах: "+ str(diffVolume)+"\n" + "Разница в цене: " + str(diffPrice) +"\n\n"
+    tokenList.append(tokenText)
 
 # Отправка нотификаций в телеграмм
-def sendTelegramNotification(pair_name, diff, priceDiff):
-    print('Тут будет выслано сообщение в телегу при срабатывании условия по росту процента объема торгов',pair_name, diff)
-    text = 'Торговая пара: '+ pair_name + '\n '+'Разница в процентах: '+ str(diff)+'\n' + 'Разница в цене: ' + str(priceDiff)
-    send_message(text)
+# def sendTelegramNotification(tokenList):
+#     print('Тут будет выслано сообщение в телегу при срабатывании условия по росту процента объема торгов',pair_name, diff)
+#     text = 'Торговая пара: '+ pair_name + '\n '+'Разница в процентах: '+ str(diff)+'\n' + 'Разница в цене: ' + str(priceDiff)
+#     send_message(text)
 
 # --------------------------------------Скрипт для записи джейсонины в базу ----------------------------------------
 # length= len(token_data)
@@ -180,16 +184,20 @@ def sendTelegramNotification(pair_name, diff, priceDiff):
 if __name__ == '__main__':
     token_data = get_binance_json()
     print(token_data)
-    length = len(token_data)-1
+    length = 50
+    # length = len(token_data)-1
     while True:
+        tokenList = []
         for i in range (length):
             single_token_data = token_data[i]
             price = get_price(i, token_data)
             volume = float(single_token_data['quoteVolume'])
             priceDiff = float(single_token_data['priceChangePercent'])
-            compare_volume(i, volume, priceDiff)
+            compare_volume(i, volume, priceDiff, tokenList)
             # db_update(price, single_token_data['priceChangePercent'],
             #       single_token_data['priceChange'], single_token_data['quoteVolume'])
-            time.sleep(1)
+            # time.sleep(1)
             print('\n\n---------------------------------------------------------------------------')
+        text = '\n'.join(tokenList)
+        send_message(text)
         time.sleep(15)

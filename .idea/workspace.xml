@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92063612-2cf5-4e23-8823-e231b35f8410" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binance_api_call.py" beforeDir="false" afterPath="$PROJECT_DIR$/Binance_api_call.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telegram.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_sm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +12,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TG_bot$tg_bot.coverage" NAME="tg_bot Coverage Results" MODIFIED="1539358403400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/TG_bot$Binance_api_call.coverage" NAME="Binance_api_call Coverage Results" MODIFIED="1540217952748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TG_bot$Binance_api_call.coverage" NAME="Binance_api_call Coverage Results" MODIFIED="1540222156890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TG_bot$telegram.coverage" NAME="telegram Coverage Results" MODIFIED="1540217373242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -112,7 +109,7 @@
           <entry key="Readme" value="432" />
           <entry key="cell" value="1" />
           <entry key="dummy" value="5" />
-          <entry key="py" value="5101" />
+          <entry key="py" value="5494" />
           <entry key="sql" value="399" />
           <entry key="txt" value="23" />
         </counts>
@@ -120,7 +117,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="460" />
-          <entry key="Python" value="5105" />
+          <entry key="Python" value="5498" />
           <entry key="SQL" value="92" />
           <entry key="Scratch" value="309" />
         </counts>
@@ -132,13 +129,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Binance_api_call.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="133" selection-start-line="133" selection-end-line="134" selection-end-column="52" />
+            <state relative-caret-position="443">
+              <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1540217946513" expanded="true" signature="231:583" ph="..." />
-                <marker date="1540217946513" expanded="true" signature="606:611" ph="..." />
-                <marker date="1540217946513" expanded="true" signature="907:5551" ph="..." />
+                <marker date="1540222156872" expanded="true" signature="231:583" ph="..." />
+                <marker date="1540222156872" expanded="true" signature="606:611" ph="..." />
+                <marker date="1540222156872" expanded="true" signature="907:5581" ph="..." />
+                <marker date="1540222156872" expanded="true" signature="5717:5896" ph="..." />
               </folding>
             </state>
           </provider>
@@ -405,7 +403,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18317653" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12064195" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5002767" side_tool="true" weight="0.32972974" />
@@ -416,12 +414,12 @@
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.4918919" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.30378377" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Database" order="0" visible="true" weight="0.32982844" />
+      <window_info anchor="right" id="Database" order="0" visible="true" weight="0.1931378" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="SciView" order="2" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
@@ -589,13 +587,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Binance_api_call.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="133" selection-start-line="133" selection-end-line="134" selection-end-column="52" />
+        <state relative-caret-position="443">
+          <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1540217946513" expanded="true" signature="231:583" ph="..." />
-            <marker date="1540217946513" expanded="true" signature="606:611" ph="..." />
-            <marker date="1540217946513" expanded="true" signature="907:5551" ph="..." />
+            <marker date="1540222156872" expanded="true" signature="231:583" ph="..." />
+            <marker date="1540222156872" expanded="true" signature="606:611" ph="..." />
+            <marker date="1540222156872" expanded="true" signature="907:5581" ph="..." />
+            <marker date="1540222156872" expanded="true" signature="5717:5896" ph="..." />
           </folding>
         </state>
       </provider>
