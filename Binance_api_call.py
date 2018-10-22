@@ -1,6 +1,7 @@
 import requests
 import psycopg2
 import time
+from telegram_sm import send_message
 
 
 conn_string = "host='localhost' dbname='binance_bot_db' user='postgres' password='meozds9205'"
@@ -128,10 +129,10 @@ def compare_volume(i, quoteVolume, priceDiff):
     print('Новое значение объема для ', pairname, new)
     # Сравниваем данные
     diff = ((new - float(old))/float(old))*100
-    if  diff>= 10:
-        sendTelegramNotification(pairname, diff)
-    print('Разница объема в процентах',diff)
-    print('Разница в цене в процентах', priceDiff)
+    if  diff>= 50:
+        sendTelegramNotification(pairname, diff,priceDiff)
+    # print('Разница объема в процентах',diff)
+    # print('Разница в цене в процентах', priceDiff)
 
 
 # Сравнение значений предыдущей цены и текущей
@@ -150,8 +151,10 @@ def compare_price(i, price):
 
 
 # Отправка нотификаций в телеграмм
-def sendTelegramNotification(pair_name, diff):
+def sendTelegramNotification(pair_name, diff, priceDiff):
     print('Тут будет выслано сообщение в телегу при срабатывании условия по росту процента объема торгов',pair_name, diff)
+    text = 'Торговая пара: '+ pair_name + '\n '+'Разница в процентах: '+ str(diff)+'\n' + 'Разница в цене: ' + str(priceDiff)
+    send_message(text)
 
 # --------------------------------------Скрипт для записи джейсонины в базу ----------------------------------------
 # length= len(token_data)
@@ -177,16 +180,16 @@ def sendTelegramNotification(pair_name, diff):
 if __name__ == '__main__':
     token_data = get_binance_json()
     print(token_data)
-    # length = len(token_data)-1
-    # while True:
-    #     for i in range (length):
-    #         single_token_data = token_data[i]
-    #         price = get_price(i, token_data)
-    #         volume = float(single_token_data['quoteVolume'])
-    #         priceDiff = float(single_token_data['priceChangePercent'])
-    #         compare_volume(i, volume, priceDiff)
-    #         # db_update(price, single_token_data['priceChangePercent'],
-    #         #       single_token_data['priceChange'], single_token_data['quoteVolume'])
-    #         time.sleep(1)
-    #         print('\n\n---------------------------------------------------------------------------')
-    #     time.sleep(15)
+    length = len(token_data)-1
+    while True:
+        for i in range (length):
+            single_token_data = token_data[i]
+            price = get_price(i, token_data)
+            volume = float(single_token_data['quoteVolume'])
+            priceDiff = float(single_token_data['priceChangePercent'])
+            compare_volume(i, volume, priceDiff)
+            # db_update(price, single_token_data['priceChangePercent'],
+            #       single_token_data['priceChange'], single_token_data['quoteVolume'])
+            time.sleep(1)
+            print('\n\n---------------------------------------------------------------------------')
+        time.sleep(15)
