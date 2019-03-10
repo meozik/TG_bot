@@ -1,0 +1,1 @@
+web: python3 Binance_api_call.py

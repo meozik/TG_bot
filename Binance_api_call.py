@@ -19,7 +19,7 @@ def get_data():
         r = requests.get(url + '/api/v1/ticker/24hr')
         return r
 
-# Преобразовываем данные с бэка вjson
+# Преобразовываем данные с бэка в json
 def get_binance_json():
     x = get_data()
     # print('Function get_binance json, ',type(x))
@@ -184,7 +184,7 @@ def format_message(pair_name, diffVolume, diffPrice, tokenList):
 if __name__ == '__main__':
     token_data = get_binance_json()
     print(token_data)
-    length = 50
+    length = 100
     # length = len(token_data)-1
     while True:
         tokenList = []
