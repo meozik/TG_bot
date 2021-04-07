@@ -1,16 +1,16 @@
-import telegram
-from telegram.ext import Updater
+from telebot import TeleBot
+import telegram_send
 import logging
 
-my_token = '788115434:AAEUEZ_lcmIYiKeWuDXDJurpL5XeJpfvi8w'
-updater = Updater(token=my_token)
-dispatcher = updater.dispatcher
-bot = telegram.Bot(token=my_token)
+
+my_token = '788115434:AAEjAFnbeSRuB2o5MX4jREeITL7OLH_ka0A'
+
+bot = TeleBot(my_token)
+# telegram_send.send(messages=["Wow that was easy!", "pidor"])
 print(bot.get_me())
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+bot.send_message(238813996, "dsfdsfds")
 
-
-meozikChatId = 238813996
-def send_message(message):
-    # bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
-    bot.send_message(chat_id=238813996, text=message)
+# meozikChatId = 238813996
+def send_message_to_tg_bot(message):
+    telegram_send.send(messages=[message])

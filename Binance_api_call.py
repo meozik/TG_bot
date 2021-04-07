@@ -1,8 +1,7 @@
 import requests
 import psycopg2
 import time
-from telegram_sm import send_message
-
+from telegram_sm import send_message_to_tg_bot as send_message
 
 # conn_string = "host='localhost' dbname='binance_bot_db' user='postgres' password='meozds9205'"
 conn_string = "host='localhost' dbname='binance_bot_db' user='meoz' password='11111111'"
@@ -13,7 +12,7 @@ def get_data():
     url = 'https://api.binance.com'
     r = requests.get(url + '/api/v1/ticker/24hr')
     # print(type(r.status_code))
-    print("Стутус код: "+ str(r.status_code))
+    print("Стутус код: " + str(r.status_code))
     while r.status_code == 200:
         # print('Function get_data, ', type(r))
         return r
@@ -21,6 +20,7 @@ def get_data():
         time.sleep(30)
         r = requests.get(url + '/api/v1/ticker/24hr')
         return r
+
 
 # Преобразовываем данные с бэка в json
 def get_binance_json():
@@ -30,10 +30,12 @@ def get_binance_json():
     data_json = x.json()
     return data_json
 
+
 # Состояние кошелька(допилить)
 def parse_wallet_state():
     url = 'https://api.binance.com'
     r = requests.get(url + '/api/v3/account', )
+
 
 # Просто коннект к базе
 def db_connect():
@@ -42,6 +44,7 @@ def db_connect():
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
     print('Connected!\n')
+
 
 # Сохранение в базу строк. !!!!НЕ АПДЕЙТ
 def db_save(id, pairname, price, pricechangepercent, pricechangeabsolut, volume):
@@ -62,6 +65,7 @@ def db_save(id, pairname, price, pricechangepercent, pricechangeabsolut, volume)
     del cursor
     conn.close()
 
+
 # Апдейт записей в базе, должен происходить каждые пол часа
 def db_update(price, pricechangepercent, pricechangeabsolut, volume):
     # Коннектимся к локальной базе данных
@@ -78,6 +82,7 @@ def db_update(price, pricechangepercent, pricechangeabsolut, volume):
     cursor.close()
     del cursor
     conn.close()
+
 
 # Получение старого значения объема из базы
 def get_old_volume(crypto_id):
@@ -96,16 +101,18 @@ def get_old_volume(crypto_id):
 
     resultVolume, resultPairname = result[0][1], result[0][0]
 
-    #Завершаем сессию
+    # Завершаем сессию
     cursor.close()
     del cursor
     conn.close()
     return resultVolume, resultPairname
 
+
 # Получение значения цены исходя из медианного в текущем запросе, дальше сохраняется в базу
 def get_price(i, json_data):
-    avgPrice = (float(json_data[i]['bidPrice'])+float(json_data[i]['askPrice']))/2
+    avgPrice = (float(json_data[i]['bidPrice']) + float(json_data[i]['askPrice'])) / 2
     return float(avgPrice)
+
 
 # Получение старого значения price из базы
 def get_old_price(i):
@@ -117,7 +124,7 @@ def get_old_price(i):
     print('get_old_price Connected!\n')
     # Выбираем старые данные по айдишнику валюты
     cursor.execute(
-        """SELECT price FROM binance_response_data WHERE id={} """.format(int(i)+1))
+        """SELECT price FROM binance_response_data WHERE id={} """.format(int(i) + 1))
     # Парсим данные в переменную
     result = cursor.fetchall()[int(i)][0]
     cursor.close()
@@ -135,9 +142,9 @@ def compare_volume(i, quoteVolume, priceDiff, tokenList):
     new = quoteVolume
     print('Новое значение объема для ', pairName, new)
     # Сравниваем данные
-    diffVolume = ((new - float(old))/float(old))*100
-    if  diffVolume>= 50:
-        format_message(pairName, diffVolume,priceDiff, tokenList)
+    diffVolume = ((new - float(old)) / float(old)) * 100
+    if diffVolume >= 50:
+        format_message(pairName, diffVolume, priceDiff, tokenList)
     # print('Разница объема в процентах',diff)
     # print('Разница в цене в процентах', priceDiff)
 
@@ -151,15 +158,18 @@ def compare_price(i, price):
     new = get_price(i)
     print('Новое значение цены', new)
     # Сравниваем данные
-    diff = ((new - old)/old)*100
-    if  diff>= 10:
+    diff = ((new - old) / old) * 100
+    if diff >= 10:
         print('Алярм!!!!')
-    print('Разница цены в процентах',diff)
+    print('Разница цены в процентах', diff)
+
 
 # Формируем список для дальнейшей отправки одним сообщением в телеграм
 def format_message(pair_name, diffVolume, diffPrice, tokenList):
-    tokenText = "Торговая пара: "+ pair_name + "\n "+"Разница в процентах: "+ str(diffVolume)+"\n" + "Разница в цене: " + str(diffPrice) +"\n\n"
+    tokenText = "Торговая пара: " + pair_name + "\n " + "Разница в процентах: " + str(
+        diffVolume) + "\n" + "Разница в цене: " + str(diffPrice) + "\n\n"
     tokenList.append(tokenText)
+
 
 # Отправка нотификаций в телеграмм
 # def sendTelegramNotification(tokenList):
@@ -169,11 +179,11 @@ def format_message(pair_name, diffVolume, diffPrice, tokenList):
 
 # --------------------------------------Скрипт для записи джейсонины в базу ----------------------------------------
 # length= len(token_data)
-    # for i in range (length):
-    #     price = get_price(i, token_data)
-    #     single_token_data = token_data[i]
-    #     db_save(i, single_token_data['symbol'], price, single_token_data['priceChangePercent'],
-    #             single_token_data['priceChange'], single_token_data['quoteVolume'])
+# for i in range (length):
+#     price = get_price(i, token_data)
+#     single_token_data = token_data[i]
+#     db_save(i, single_token_data['symbol'], price, single_token_data['priceChangePercent'],
+#             single_token_data['priceChange'], single_token_data['quoteVolume'])
 
 # --------------------------------------Скрипт для выбора только BTC пар -------------------------------------------
 # btc_List = []
@@ -186,18 +196,15 @@ def format_message(pair_name, diffVolume, diffPrice, tokenList):
 #         print(item)
 
 
-
-
 if __name__ == '__main__':
     token_data = get_binance_json()
     print(token_data)
 
-
     # length = 10
-    length = len(token_data)-1
+    length = len(token_data) - 1
     while True:
         tokenList = []
-        for i in range (length):
+        for i in range(length):
             single_token_data = token_data[i]
             price = get_price(i, token_data)
             volume = float(single_token_data['quoteVolume'])
